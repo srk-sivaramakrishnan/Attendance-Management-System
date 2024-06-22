@@ -1,14 +1,13 @@
-// App.js
-
 import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import AdminLogin from './Components/Admin/AdminLogin';
-import AdminDashboard from './Components/Admin/AdminDashboard';
-import ManageStudents from './Components/Admin/ManageStudents';
-import AddStudent from './Components/Admin/AddStudent';
-import RemoveStudent from './Components/Admin/RemoveStudent';
-import UpdateStudentProfile from './Components/Admin/UpdateStudentProfile';
-import Home from './Components/Home';
+import AdminLogin from './components/Admin/AdminLogin';
+import AdminDashboard from './components/Admin/AdminDashboard';
+import ManageStudents from './components/Admin/ManageStudents';
+import AddStudent from './components/Admin/AddStudent';
+import MoreStudents from './components/Admin/MoreStudents'; 
+import RemoveStudent from './components/Admin/RemoveStudent';
+import UpdateStudentProfile from './components/Admin/UpdateStudentProfile';
+import Home from './components/Home';
 
 function App() {
   return (
@@ -19,6 +18,7 @@ function App() {
         <Route path="/admin/dashboard" element={<AdminDashboard />} />
         <Route path="/admin/manage-students" element={<ManageStudents />} />
         <Route path="/admin/manage-students/add" element={<AddStudent />} />
+        <Route path="/admin/manage-students/more-students" element={<MoreStudents />} />
         <Route path="/admin/manage-students/remove" element={<RemoveStudent />} />
         <Route path="/admin/manage-students/update" element={<UpdateStudentProfile />} />
       </Routes>

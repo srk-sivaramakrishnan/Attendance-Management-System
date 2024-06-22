@@ -2,8 +2,8 @@
 
 import React from 'react';
 import { Link } from 'react-router-dom';
-import './ManageStudents.css';
-import AdminDashboard from './AdminDashboard'; // Importing the AdminDashboard sidebar
+import '../../css/Admin/ManageStudents.css';
+import AdminDashboard from './AdminDashboard';
 
 const ManageStudents = () => {
   return (

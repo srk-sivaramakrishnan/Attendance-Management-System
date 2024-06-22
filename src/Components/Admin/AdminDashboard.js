@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faBars, faUserGraduate, faChalkboardTeacher, faChartBar, faCog, faTimes } from '@fortawesome/free-solid-svg-icons';
-import './AdminDashboard.css';
+import { faBars, faTimes, faUserGraduate, faChalkboardTeacher, faChartBar, faCog } from '@fortawesome/free-solid-svg-icons';
+import '../../css/Admin/AdminDashboard.css';
 
 const AdminDashboard = () => {
   const [sidebarOpen, setSidebarOpen] = useState(false);
@@ -22,7 +22,7 @@ const AdminDashboard = () => {
         </div>
         <ul className="sidebar-menu">
           <li>
-            <Link to="/admin/dashboard" className="sidebar-link" onClick={toggleSidebar}>
+            <Link to="/admin/manage-students" className="sidebar-link" onClick={toggleSidebar}>
               <FontAwesomeIcon icon={faUserGraduate} />
               <span>Manage Students</span>
             </Link>
@@ -49,10 +49,8 @@ const AdminDashboard = () => {
       </div>
       <div className="content">
         <div className="hamburger-menu" onClick={toggleSidebar}>
-          <FontAwesomeIcon icon={sidebarOpen ? faTimes : faBars} />
-        </div>
-        <h1>Welcome to the Admin Dashboard</h1>
-        <p>Select an option from the sidebar to manage the application.</p>
+          <FontAwesomeIcon icon={faBars} />
+        </div>  
       </div>
     </div>
   );
