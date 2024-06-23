@@ -1,46 +1,52 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import '../../css/Admin/MoreStudents.css';
 
 const MoreStudents = () => {
-  const [csvFile, setCsvFile] = useState(null);
-  const [uploadSuccess, setUploadSuccess] = useState(false);
+  const [csvFile, setCsvFile] = useState(null); // State for storing CSV file
+  // const [csvData, setCsvData] = useState([]); // Example unused state variables
 
+  // Function to handle file change event
   const handleFileChange = (e) => {
-    setCsvFile(e.target.files[0]);
+    setCsvFile(e.target.files[0]); // Update state with selected file
   };
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    const data = new FormData();
-    data.append('csvFile', csvFile);
+  // Function to handle file upload
+  const handleUpload = async () => {
+    if (!csvFile) {
+      alert('Please select a CSV file'); // Alert if no file selected
+      return;
+    }
+
+    const formData = new FormData(); // Create FormData object
+    formData.append('csvFile', csvFile); // Append selected file to FormData
 
     try {
-      const response = await axios.post('http://localhost:5000/api/students/bulk', data, {
+      // Send POST request to server with FormData containing CSV file
+      const response = await axios.post('http://localhost:5000/api/students/bulk', formData, {
         headers: {
-          'Content-Type': 'multipart/form-data',
-        },
+          'Content-Type': 'multipart/form-data' // Set headers for FormData
+        }
       });
+
+      // Handle server response
       if (response.data.success) {
-        setUploadSuccess(true);
+        alert('Students added successfully!'); // Display success message
+        // Optionally, clear form data or update UI as needed
       } else {
-        alert('Failed to upload students');
+        alert('Failed to add students'); // Display error message if request fails
       }
     } catch (error) {
-      console.error('Error uploading students:', error);
+      console.error('Error uploading students:', error); // Log and alert on error
+      alert('Error uploading students');
     }
   };
 
   return (
-    <div className="more-students-container">
-      <h2>Add More Students</h2>
-      <form onSubmit={handleSubmit}>
-        <div className="form-group">
-          <label>Upload CSV File:</label>
-          <input type="file" name="csvFile" onChange={handleFileChange} accept=".csv" required />
-        </div>
-        <button type="submit">Upload</button>
-      </form>
-      {uploadSuccess && <p>Students uploaded successfully!</p>}
+    <div>
+      <h2>Upload CSV File</h2>
+      <input type="file" accept=".csv" onChange={handleFileChange} /> {/* Input for file selection */}
+      <button onClick={handleUpload}>Upload</button> {/* Button to trigger upload */}
     </div>
   );
 };

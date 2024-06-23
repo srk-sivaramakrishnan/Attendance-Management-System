@@ -1,0 +1,29 @@
+.more-students-container {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.more-students-container h2 {
+  font-size: 1.5rem;
+  margin-bottom: 20px;
+}
+
+.more-students-container input[type='file'] {
+  margin-bottom: 10px;
+}
+
+.more-students-container button {
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+}
+
+.more-students-container button:hover {
+  background-color: #0056b3;
+}

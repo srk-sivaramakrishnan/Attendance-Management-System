@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import axios from 'axios';
 import '../../css/Admin/AddStudent.css';
 
+
 const AddStudent = () => {
   const [formData, setFormData] = useState({
     name: '',
@@ -51,11 +52,29 @@ const AddStudent = () => {
       });
       if (response.data.success) {
         alert('Student added successfully');
+        // Clear form data after successful submission
+        setFormData({
+          name: '',
+          dob: '',
+          rollNo: '',
+          registerNo: '',
+          phoneNumber: '',
+          address: '',
+          bloodGroup: '',
+          department: '',
+          year: '',
+          dayScholar: '',
+          classAdvisor: '',
+          email: '',
+          password: '',
+          profilePhoto: null,
+        });
       } else {
         alert('Failed to add student');
       }
     } catch (error) {
       console.error('There was an error!', error);
+      alert('Failed to add student');
     }
   };
 

@@ -2,10 +2,9 @@
   max-width: 600px;
   margin: 0 auto;
   padding: 20px;
-  border: 1px solid #ddd;
+  border: 1px solid #ccc;
   border-radius: 5px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  background-color: #fff;
+  background-color: #f9f9f9;
 }
 
 .add-student-container h2 {
@@ -18,37 +17,73 @@
 }
 
 .form-group label {
-  display: block;
   font-weight: bold;
+  display: block;
   margin-bottom: 5px;
 }
 
-.form-group input,
-.form-group select,
-.form-group textarea {
-  width: calc(100% - 10px);
-  padding: 8px 5px;
+.form-group input[type="text"],
+.form-group input[type="date"],
+.form-group input[type="email"],
+.form-group input[type="password"],
+.form-group textarea,
+.form-group select {
+  width: 100%;
+  padding: 8px;
+  font-size: 16px;
   border: 1px solid #ccc;
   border-radius: 4px;
+  box-sizing: border-box;
 }
 
 .form-group textarea {
-  resize: vertical;
-  height: 100px;
+  height: 80px;
 }
 
-button[type="submit"] {
-  display: block;
-  width: 100%;
-  padding: 10px;
-  background-color: #5cb85c;
+.form-group select {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background-image: url('data:image/svg+xml;utf8,<svg fill="%231E90FF" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"><path d="M7 10l5 5 5-5z"/><path d="M0 0h24v24H0z" fill="none"/></svg>');
+  background-repeat: no-repeat;
+  background-position-x: calc(100% - 10px);
+  background-position-y: center;
+  background-size: 10px;
+  padding-right: 30px;
+}
+
+.form-group input[type="file"] {
+  padding: 8px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  background-color: #fff;
+  width: auto;
+  overflow: hidden;
+}
+
+.form-group button[type="submit"] {
+  background-color: #1E90FF;
   color: #fff;
   border: none;
-  border-radius: 4px;
+  padding: 10px 20px;
   font-size: 16px;
   cursor: pointer;
+  border-radius: 4px;
 }
 
-button[type="submit"]:hover {
-  background-color: #4cae4c;
+.form-group button[type="submit"]:hover {
+  background-color: #007BFF;
+}
+
+.form-group a {
+  display: block;
+  text-align: center;
+  margin-top: 10px;
+  color: #007BFF;
+}
+
+.form-group a:hover {
+  text-decoration: underline;
 }
