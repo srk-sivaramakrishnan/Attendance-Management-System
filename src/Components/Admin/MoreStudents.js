@@ -3,50 +3,46 @@ import axios from 'axios';
 import '../../css/Admin/MoreStudents.css';
 
 const MoreStudents = () => {
-  const [csvFile, setCsvFile] = useState(null); // State for storing CSV file
-  // const [csvData, setCsvData] = useState([]); // Example unused state variables
+  const [csvFile, setCsvFile] = useState(null);
 
   // Function to handle file change event
   const handleFileChange = (e) => {
-    setCsvFile(e.target.files[0]); // Update state with selected file
+    setCsvFile(e.target.files[0]);
   };
 
   // Function to handle file upload
   const handleUpload = async () => {
     if (!csvFile) {
-      alert('Please select a CSV file'); // Alert if no file selected
+      alert('Please select a CSV file');
       return;
     }
 
-    const formData = new FormData(); // Create FormData object
-    formData.append('csvFile', csvFile); // Append selected file to FormData
+    const formData = new FormData();
+    formData.append('csvFile', csvFile);
 
     try {
-      // Send POST request to server with FormData containing CSV file
       const response = await axios.post('http://localhost:5000/api/students/bulk', formData, {
         headers: {
-          'Content-Type': 'multipart/form-data' // Set headers for FormData
-        }
+          'Content-Type': 'multipart/form-data',
+        },
       });
 
-      // Handle server response
       if (response.data.success) {
-        alert('Students added successfully!'); // Display success message
-        // Optionally, clear form data or update UI as needed
+        alert('Students added successfully!');
       } else {
-        alert('Failed to add students'); // Display error message if request fails
+        alert('Failed to add students');
       }
     } catch (error) {
-      console.error('Error uploading students:', error); // Log and alert on error
+      console.error('Error uploading students:', error);
       alert('Error uploading students');
     }
   };
 
   return (
-    <div>
+    <div className="container">
       <h2>Upload CSV File</h2>
-      <input type="file" accept=".csv" onChange={handleFileChange} /> {/* Input for file selection */}
-      <button onClick={handleUpload}>Upload</button> {/* Button to trigger upload */}
+      <input type="file" accept=".csv" onChange={handleFileChange} />
+      <button onClick={handleUpload}>Upload</button>
     </div>
   );
 };

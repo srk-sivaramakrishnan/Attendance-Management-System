@@ -1,89 +1,90 @@
-.add-student-container {
-  max-width: 600px;
-  margin: 0 auto;
-  padding: 20px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  background-color: #f9f9f9;
+.back-link {
+  display: inline-block;
+  margin: 20px;
+  color: #EEEEEE; 
+  text-decoration: none;
+  font-size: 1.3rem;
 }
 
-.add-student-container h2 {
+.back-link:hover {
+  text-decoration: underline;
+}
+
+
+h2 {
   text-align: center;
-  margin-bottom: 20px;
+  font-size: 2.5rem; 
+  margin-bottom: 50px;
+  color:#eeeeee
+}
+
+.row {
+  display: flex;
+  justify-content: space-between;
+  margin: 20px;
 }
 
 .form-group {
-  margin-bottom: 15px;
+  flex: 1;
+  margin-right: 10px;
 }
 
 .form-group label {
-  font-weight: bold;
   display: block;
+  font-size: 1.2rem; 
   margin-bottom: 5px;
+  font-weight: bold;
+  color:#eeeeee
 }
 
-.form-group input[type="text"],
-.form-group input[type="date"],
-.form-group input[type="email"],
-.form-group input[type="password"],
-.form-group textarea,
-.form-group select {
+input[type="text"],
+input[type="password"],
+input[type="email"],
+input[type="date"],
+textarea[name="address"],
+select,
+textarea {
   width: 100%;
-  padding: 8px;
-  font-size: 16px;
+  padding: 10px;
+  font-size: 1rem; /* Increase font size */
   border: 1px solid #ccc;
   border-radius: 4px;
   box-sizing: border-box;
 }
 
-.form-group textarea {
-  height: 80px;
+textarea {
+  height: 40px; /* Set a specific height for textarea */
 }
 
-.form-group select {
-  appearance: none;
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  background-image: url('data:image/svg+xml;utf8,<svg fill="%231E90FF" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"><path d="M7 10l5 5 5-5z"/><path d="M0 0h24v24H0z" fill="none"/></svg>');
-  background-repeat: no-repeat;
-  background-position-x: calc(100% - 10px);
-  background-position-y: center;
-  background-size: 10px;
-  padding-right: 30px;
-}
-
-.form-group input[type="file"] {
-  padding: 8px;
-  font-size: 16px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  box-sizing: border-box;
-  background-color: #fff;
-  width: auto;
-  overflow: hidden;
-}
-
-.form-group button[type="submit"] {
-  background-color: #1E90FF;
-  color: #fff;
-  border: none;
+button[type="submit"],
+.add-more-btn button {
   padding: 10px 20px;
-  font-size: 16px;
-  cursor: pointer;
+  font-size: 1.2rem; /* Increase font size */
+  background-color:  #DC5F00;;
+  color: white;
+  border: none;
   border-radius: 4px;
+  cursor: pointer;
 }
 
-.form-group button[type="submit"]:hover {
-  background-color: #007BFF;
+.add-more-btn {
+  flex: 1;
+  text-align: left;
+  margin-right: 10px; /* Adjust margin */
 }
 
-.form-group a {
-  display: block;
-  text-align: center;
-  margin-top: 10px;
-  color: #007BFF;
+.add-more-btn a {
+  text-decoration: underline; /* Maintain underline style */
+  font-size: 1.3rem; /* Adjust font size */
+  color:#DC5F00;
 }
 
-.form-group a:hover {
+.add-more-btn a:hover {
   text-decoration: underline;
+  color:#eeeeee
+}
+
+.add-student-btn {
+  flex: 1;
+  text-align: right;
 }
